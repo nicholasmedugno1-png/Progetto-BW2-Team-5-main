@@ -1,0 +1,488 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* VARIABILI */
+
+:root {
+    /* COLORI PRINCIPALI */
+    --bg-body: #000000;
+    --bg-logo: #ffd400;
+    --header-bg: #222222;
+    --main-bg: #181818;
+    --card-bg: #1B1B1B;
+    --button-bg: #080808;
+    --button-hover: #292929;
+    --border-color: #2A2A2A;
+
+    /* TESTI */
+    --text-primary: #FFFFFF;
+    --text-secondary: #B3B3B3;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+
+/* BODY */
+body {
+    background: var(--bg-body);
+    color: var(--text-primary);
+    overflow: hidden;
+}
+
+/* DIV PRINCIPALE */
+.app {
+    height: 100vh;
+    height: 100dvh;
+}
+
+
+/* SIDEBAR */
+.sidebar {
+    background: var(--bg-body);
+}
+
+/* MAIN */
+main {
+    background: var(--main-bg);
+}
+
+
+/* logo epitune */
+.brand-mark {
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+    background: var(--bg-logo);
+    color: var(--bg-body);
+    font-weight: 900;
+    line-height: 1;
+}
+
+.brand-name {
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.side-link {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 1rem;
+    padding: 0.75rem;
+    border-radius: 6px;
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.sidebar-nav a:hover {
+    background: #151515;
+}
+
+.sidebar-nav a.active {
+    background: #1f1f1f;
+}
+
+/* icone */
+.icon {
+    font-size: 1.25rem;
+}
+
+/* SEZIONE PREFERITI */
+.sidebar-section-title {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+}
+
+/* lista preferiti */
+.sidebar-list li {
+    padding: 0.25rem 0;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+/*-----------------------------------*/
+
+/* HEADER PRINCIPALE */
+.topbar {
+    height: 60px;
+    width: 100%;
+    background-color: var(--header-bg);
+    border-bottom: 1px solid var(--border-color);
+    z-index: 1000;
+}
+
+/* PULSANTI NAVIGAZIONE */
+.nav-btn {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    background-color: var(--button-bg);
+    color: var(--text-primary);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.nav-btn:hover {
+    background-color: var(--button-hover);
+}
+
+/* END */
+
+/* SEZIONE HOME */
+/* card brani */
+.card-personal {
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-content: start;
+    color: white;
+    cursor: pointer;
+    padding: .875rem 1.375rem;
+    transition: transform .2s ease;
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0 .5rem;
+        z-index: -1;
+        background: var(--card-bg);
+        border-radius: 8px;
+        transition: background-color .2s ease, box-shadow .2s ease;
+    }
+
+    &:hover {
+        transform: translateY(-4px);
+
+        &::before {
+            background: #262626;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .6);
+        }
+    }
+
+    /* immagine interna alla card */
+    .myDivImg {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        & img {
+            display: block;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 4px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .5)
+        }
+    }
+}
+
+/* titolo canzone + artista */
+.myDivTitle {
+    position: relative;
+    margin-top: 1rem;
+    padding-right: 2rem;
+
+    & p {
+        margin: 0;
+        overflow: hidden;
+        line-height: 1.4;
+
+    }
+
+    /* titolo */
+    & p:first-of-type {
+        color: white;
+        font-weight: bold;
+        font-size: 1rem;
+    }
+
+    /* artista */
+    & p:nth-of-type(2) {
+        color: var(--text-secondary);
+        font-size: .8rem;
+    }
+
+}
+
+/* pulsante preferiti */
+.btnPref {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.4rem;
+    border: 0;
+    padding: 5px;
+    color: var(--text-primary);
+    font-size: 1.4rem;
+
+    &:hover {
+        color: var(--bg-logo);
+    }
+
+}
+
+.btnPrefActive {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.4rem;
+    border: 0;
+    padding: 5px;
+    color: yellow;
+    font-size: 1.4rem;
+
+    &:hover {
+        color: var(--bg-logo);
+    }
+
+}
+
+
+/* SIMBOLI MOBILE ONLY */
+.mobile-only .material-symbols-rounded {
+    font-size: 24px;
+    color: var(--text-primary);
+    vertical-align: middle;
+}
+
+.mobile-only:focus span {
+    color: #B3B3B3;
+}
+
+
+/* PROFILO UTENTE */
+.user-pill {
+    background-color: var(--button-bg);
+    color: var(--text-primary);
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.user-pill:hover {
+    cursor: pointer;
+}
+
+/* FOOTER PLAYER */
+.player {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    min-height: 90px;
+    padding: 10px 8px;
+    background-color: var(--header-bg);
+    border-top: 1px solid var(--border-color);
+    color: var(--text-primary);
+    z-index: 1000;
+}
+
+/* BRANO SELEZIONATO */
+.player-track {
+    min-width: 0;
+}
+
+.player-cover {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+}
+
+.player-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.player-meta {
+    min-width: 0;
+    overflow: hidden;
+}
+
+.player-meta p {
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.player-title {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.player-artist {
+    font-size: 11px;
+    color: var(--text-secondary);
+}
+
+/* PLAYER CENTRALE */
+.player-center {
+    min-width: 0;
+    gap: 8px;
+}
+
+.player-controls {
+    width: 100%;
+    flex-wrap: nowrap;
+}
+
+.btn-ctrl,
+.btn-play {
+    border: none;
+    cursor: pointer;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-ctrl {
+    padding: 2px;
+    background-color: transparent;
+    color: var(--text-secondary);
+}
+
+.btn-ctrl .material-symbols-rounded {
+    font-size: 20px;
+}
+
+.btn-play {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border-radius: 50%;
+    background-color: var(--text-primary);
+    color: var(--button-bg);
+}
+
+.btn-play .material-symbols-rounded {
+    font-size: 24px;
+}
+
+/* BARRA AVANZAMENTO BRANO */
+.player-progress {
+    width: 100%;
+    min-width: 0;
+    font-size: 10px;
+    color: var(--text-secondary);
+}
+
+.progress-bar {
+    flex-grow: 1;
+    height: 4px;
+    background-color: var(--border-color);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background-color: var(--text-primary);
+}
+
+/* VOLUME */
+.player-right {
+    min-width: 0;
+}
+
+.player-right .dropup {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.player-right .btn-ctrl {
+    width: 24px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.player-right .material-symbols-rounded {
+    font-size: 22px;
+    color: var(--text-secondary);
+}
+
+/* MENU VOLUME */
+.player-right .dropdown-menu {
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% + 8px);
+    transform: translateX(-50%);
+    width: 30px;
+    min-width: 30px;
+    height: 110px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.player-right .dropdown-menu.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* CURSORE VOLUME */
+.volume-control {
+    width: 90px !important;
+    height: 6px !important;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    transform: rotate(-90deg);
+    accent-color: var(--text-primary);
+}
+
+/* END FOOTER */
+
+/* PAGINA SEARCH */
+
+.search {
+    color: var(--text-primary);
+}
+
+.search-box {
+    max-width: 550px;
+    margin: 0 auto 2rem;
+}
+
+.search-box .form-control::placeholder {
+    color: var(--text-secondary);
+}
+
+.search-box .form-control,
+.search-box .form-control:focus,
+.btnPref:focus {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
